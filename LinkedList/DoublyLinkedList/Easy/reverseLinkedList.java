@@ -74,9 +74,10 @@ public class reverseLinkedList {
         head = insertAtTail(head, 30);
         head = insertAtTail(head, 40);
 
-
+        System.out.println("Linked list before reversal...!");
         display(head);
 
+        System.out.println("\nLinked list after reversal..!");
         head =reverseDLL(head);
         display(head);
     } 

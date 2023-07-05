@@ -40,6 +40,8 @@
 
 package LinkedList.SinglyLinkedList.Basic;
 
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 class Node{
 
@@ -103,27 +105,41 @@ public class lengthOfLoop {
     }
 
     static int countNodesinLoop(Node head){
-
-        
         int count=0;
+        Hashtable<Integer,Node> hm=new Hashtable<Integer,Node>();  
+        Node node = head;
+
+        int x = 0;
+        int nodeCount=0;
+        while(node!=null){
+            if(!hm.containsValue(node)){
+                hm.put(x, node);
+                x++;
+                nodeCount++;
+            }
+            else{
+
+                Enumeration<Integer> e = hm.keys();
+
+                while(e.hasMoreElements()){
+                    int key = e.nextElement();
+
+                    if(hm.get(key)==node){
+                        return nodeCount-key+1;
+                    }
+                }
+            }
+            node = node.next;
+        }
+
         return count;
+        
     }
 
     public static void main(String[] args) {
         Node head = null;
 
         head = insertFirst(40, head);
-        head = insertFirst(30, head);
-        head = insertFirst(20, head);
-        head = insertFirst(10, head);
-        System.out.println("LinkedList before inserting 0 at beginning : ");
-        display(head);
-        head = insertFirst(0, head);
-        System.out.println("LinkedList after inserting 0 at beginning : ");
-        display(head);
-
-        head = insertLast(50, head);
-        System.out.println("LinkedList after inserting 50 at Last : ");
         display(head);
     }
 }

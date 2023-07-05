@@ -33,17 +33,17 @@ package LinkedList.DoublyLinkedList.Easy;
 
 
 
-class Node {
+// class Node {
 
-    int data;
-    Node  next;
-    Node  prev;
-    Node(int x) {
-        data = x;
-        next = null;
-        prev = null;
-    }
-} 
+//     int data;
+//     Node  next;
+//     Node  prev;
+//     Node(int x) {
+//         data = x;
+//         next = null;
+//         prev = null;
+//     }
+// } 
 
 
 public class getMiddle {
