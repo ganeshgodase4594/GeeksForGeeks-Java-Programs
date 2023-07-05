@@ -37,7 +37,7 @@
 
 package Array.Easy;
 
-class Solution {
+public class peak_Element {
 
     public int peakElement(int[] arr, int n) {
         int ind = 0;
