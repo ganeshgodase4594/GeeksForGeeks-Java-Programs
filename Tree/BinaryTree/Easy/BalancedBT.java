@@ -52,8 +52,6 @@ Check for Balanced Tree
 
 package Tree.BinaryTree.Easy;
 
-import javax.print.FlavorException;
-import javax.swing.JEditorPane;
 
 class Node{
     int data;
