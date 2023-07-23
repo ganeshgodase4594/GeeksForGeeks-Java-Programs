@@ -69,6 +69,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
+
 class Node{
     int data;
     Node left,right;
@@ -124,7 +125,7 @@ public class bottomView {
 
       return ls; 
     }
-    
+
     public static void main(String[] args) {
         Node root = new Node(10);
         root.left = new Node(20);
