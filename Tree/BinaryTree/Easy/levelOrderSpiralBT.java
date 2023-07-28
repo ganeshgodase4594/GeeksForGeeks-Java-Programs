@@ -35,7 +35,6 @@ Level order traversal in spiral form
 
 package Tree.BinaryTree.Easy;
 
-import java.rmi.server.RemoteStub;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;

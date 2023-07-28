@@ -27,7 +27,6 @@ Remove Duplicates
 package String.Easy;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 
 

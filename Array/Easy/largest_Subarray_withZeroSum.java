@@ -44,8 +44,6 @@ public class largest_Subarray_withZeroSum {
     }
 
     static int optimalSol(int arr[],int n){
-
-        // Your code here
         HashMap<Integer, Integer> mpp = new HashMap<Integer, Integer>();
 
         int max = 0;
@@ -60,7 +58,6 @@ public class largest_Subarray_withZeroSum {
             }
             else {
                 if(mpp.get(sum) != null) {
-
                     max = Math.max(max, i - mpp.get(sum)); 
                 }
                 else {
