@@ -41,18 +41,7 @@ public class firstRepeatingElement {
 
     static int firstRepeated(int[] arr, int n) {
         
-        Map<Integer,Integer>mp= new HashMap<>();
-
-        for(int i=0;i<arr.length;i++){
-            if(mp.containsKey(arr[i])){
-                return (mp.get(arr[i])+1);
-            }
-            mp.put(arr[i], i);
-        }
-
-        // System.out.println(mp);
-
-
+        
         return -1;
     }
 

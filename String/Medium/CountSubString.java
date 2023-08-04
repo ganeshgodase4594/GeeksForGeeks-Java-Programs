@@ -70,8 +70,8 @@ public class CountSubString {
     }
 
     public static void main(String[] args) {
-        String s = "abaaca";
-        int k=1;
+        String s = "aba";
+        int k=2;
 
         System.out.println(substrCount(s, k));
     }
