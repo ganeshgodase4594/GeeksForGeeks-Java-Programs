@@ -28,44 +28,46 @@
 
 
 package Array.Medium;
+import java.math.BigInteger;
 import java.util.*;
 
 public class findMissingAndRepetatingElement {
 
     static int[] findTwoElement(int arr[], int n) {
-        int ans[] = new int[2];
-        Set<Integer>s = new TreeSet<>();
-
-        int arrsum =0;
-        int actualSum = 0;
-
-        for(int i=0;i<arr.length-1;i++){
-            arrsum +=arr[i];
-            if(s.contains(arr[i])){
-                ans[0] = arr[i];
-            }
-            s.add(arr[i]);
-        }
-
-        actualSum = (arr.length * (arr.length+1))/2;
-
-        if(arrsum>actualSum){
-            ans[1] = ans[0]-(arrsum-actualSum);
-        }
-
-        else{
-
-            ans[1] = ans[0]+(actualSum-arrsum);
-        }
-
-
-
-        return ans;
+        HashMap<Integer, Integer> map = new HashMap<>();
+         int a[] = new int[2];
+         
+         for(int i=0;i<n;i++){
+             if(!(map.containsKey(arr[i]))){
+                 map.put(arr[i],arr[i]);
+             }
+             
+             else{
+                 a[0] = arr[i];
+             }
+         }
+         
+         int sum = n*(n+1)/2;
+         int s=0;
+         for(int i=0;i<n;i++){
+             s = s+arr[i];
+         }
+         
+        //  System.out.println(s);
+         
+         if(s>sum){
+             a[1] = a[0]-(s-sum);
+         }
+         
+         else{
+             a[1] = a[0]+(sum-s);
+         }
+        return a;
     }
-
+    
     public static void main(String[] args) {
         int []arr = {1,3,3};
-        int[] ans = findTwoElement(arr, 0);
+        int[] ans = findTwoElements(arr);
 
         for(int i=0;i<ans.length;i++){
             System.out.print(ans[i]+" ");
