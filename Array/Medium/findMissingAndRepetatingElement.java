@@ -34,40 +34,41 @@ import java.util.*;
 public class findMissingAndRepetatingElement {
 
     static int[] findTwoElement(int arr[], int n) {
+        //  Set<Integer> st = new TreeSet<>();
         HashMap<Integer, Integer> map = new HashMap<>();
-         int a[] = new int[2];
-         
-         for(int i=0;i<n;i++){
-             if(!(map.containsKey(arr[i]))){
-                 map.put(arr[i],arr[i]);
-             }
-             
-             else{
-                 a[0] = arr[i];
-             }
-         }
-         
-         int sum = n*(n+1)/2;
-         int s=0;
-         for(int i=0;i<n;i++){
-             s = s+arr[i];
-         }
-         
-        //  System.out.println(s);
-         
-         if(s>sum){
-             a[1] = a[0]-(s-sum);
-         }
-         
-         else{
-             a[1] = a[0]+(sum-s);
-         }
-        return a;
+        int a[] = new int[2];
+        int s =0;
+        
+        for(int i=0;i<n;i++){
+            if(!map.containsKey(arr[i])){
+                map.put(arr[i],i);
+            }
+            
+            else{
+                a[0] = arr[i];
+            }
+            
+            s +=arr[i];
+        }
+        
+        int sum = n*(n+1)/2;
+
+        
+       //  System.out.println(s);
+        
+        if(s>sum){
+            a[1] = a[0]-(s-sum);
+        }
+        
+        else{
+            a[1] = a[0]+(sum-s);
+        }
+       return a;
     }
     
     public static void main(String[] args) {
         int []arr = {1,3,3};
-        int[] ans = findTwoElements(arr);
+        int[] ans = findTwoElement(arr,0);
 
         for(int i=0;i<ans.length;i++){
             System.out.print(ans[i]+" ");
