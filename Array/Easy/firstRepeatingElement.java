@@ -41,8 +41,30 @@ public class firstRepeatingElement {
 
     static int firstRepeated(int[] arr, int n) {
         
+        Map<Integer, Integer>hm = new LinkedHashMap<>();
+        
+        for(int i=0;i<arr.length;i++){
+            int x = hm.getOrDefault(arr[i],0);
+            hm.put(arr[i],x+1);
+        }
+        
+        // System.out.println(hm);
+        int x = -1;
+        for(Map.Entry<Integer,Integer>entry : hm.entrySet()){
+            if(entry.getValue()>=2){
+                x =  entry.getKey();
+                break;
+            }
+        }
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==x){
+                return i+1;
+            }
+        }
         
         return -1;
+
     }
 
     public static void main(String[] args) {

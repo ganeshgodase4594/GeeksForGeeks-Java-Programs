@@ -30,26 +30,42 @@
 
 package Array.Easy;
 
+import java.util.Arrays;
+
 public class rotation {
 
     static int findKRotation(int arr[], int n) {
 
-        if(arr[0]==5){
-            return 1;
+         int res[] = new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            res[i] = arr[i];
         }
-        else if(arr[0]==4){
-            return 2;
+        
+        Arrays.sort(arr);
+        
+        if(isSorted(arr,res)){
+            return 0;
         }
-        else if(arr[0]==3){
-            return 3;
+    
+        for(int i=0;i<=arr.length-2;i++){
+            
+            if(arr[arr.length-1]==res[i]){
+                return i+1;
+            }
         }
-        else if(arr[0]==2){
-            return 4;
-        }
-
+        
         return 0;
     }
 
+    static boolean isSorted(int[] arr,int res[]){
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=res[i]){
+                return false;
+            }
+            
+        }
+            return true;
+    }
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5};
 
