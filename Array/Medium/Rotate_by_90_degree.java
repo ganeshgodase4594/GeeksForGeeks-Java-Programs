@@ -38,7 +38,7 @@ package Array.Medium;
 
 class Solution
 {
-    //Function to rotate matrix anticlockwise by 90 degrees.
+    
     static void rotateby90(int matrix[][], int n) 
     { 
         for(int i=0;i<n;i++){
