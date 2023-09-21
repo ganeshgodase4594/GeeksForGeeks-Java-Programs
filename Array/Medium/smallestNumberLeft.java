@@ -1,7 +1,5 @@
 
 /*
-
-
 Smallest number on left
         MediumAccuracy: 54.85%Submissions: 50K+Points: 4
         Join the most popular course on DSA. Master Skills & Become Employable by enrolling today! 
@@ -23,8 +21,7 @@ Smallest number on left
         the smaller numbers. But for 4 the smaller 
         numbers are 1, 0 and 3. But among them 3 
         is closest. Similary for 5 it is 4.
-
- */
+*/
 
 
 

@@ -43,47 +43,48 @@ import java.util.Stack;
 
 public class nextGreaterElement {
 
-    // static long[] nextLargerElement(long[] arr, int n){
-    //     long[] res = new long[arr.length];
-
-    //     for(int i=arr.length-2;i>=0;i--){
-
-    //         if(arr[i]<arr[i+1]){
-    //             res[i] = arr[i+1];
-    //         }
-
-    //         else if(arr[i]>arr[i+1]){
-    //             boolean flag = false;
-    //             for(int j=i+2;j<arr.length;j++){
-    //                 if(arr[i]<arr[j]){
-    //                     flag = true;
-    //                     res[i] = arr[j];
-    //                     break;
-    //                 }
-    //             }
-    //             if(!flag){
-    //                 res[i] = -1;
-    //             }
-    //         }
-    //         else{
-    //             res[i] = -1;
-    //         }
-    //     }
-    //     res[arr.length-1] = -1;
-    //     return res;
-    // }
-
-    static long[] nextLargerElement(long[] arr, int n){
-        long[] res = new long[arr.length];
-
+    public static long[] nextLargerElement(long[] arr, int n)
+    { 
+        long[] ans = new long[arr.length];
+        
         Stack<Long>st = new Stack<>();
-
-        for(int i=0;i<arr.length;i++){
-            st.push(arr[i]);
+        
+        for(int i=arr.length-1;i>=0;i--){
+            
+            if(st.isEmpty()){
+                ans[i] = -1;
+                st.push(arr[i]);
+            }
+            
+            else if(st.peek() <= arr[i]){
+                
+                while(st.peek() <= arr[i]){
+                    st.pop();
+                    
+                    if(st.isEmpty()){
+                        break;
+                    }
+                }
+                
+                if(st.isEmpty()){
+                    ans[i] = -1;
+                    st.push(arr[i]);
+                }
+                else{
+                    ans[i] = st.peek();
+                    st.push(arr[i]);
+                }
+            }
+            else{
+                ans[i] = st.peek();
+                st.push(arr[i]);
+            }
         }
         
-        return res;
-    }
+        return ans;
+    } 
+
+
  
     public static void main(String[] args) {
         long[] arr = {6 ,8 ,0, 1, 3};
