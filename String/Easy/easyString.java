@@ -23,6 +23,7 @@ public class easyString {
         
         return str;
     }
+    
     public static void main(String[] args) {
         String S = "aaABBb";
 

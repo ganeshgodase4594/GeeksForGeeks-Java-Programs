@@ -39,6 +39,8 @@ public class ColumnNameForGivenCloumnNumber {
             return ((char)(n+64))+"";
         } 
         
+        int count = 0;
+        // while()
         return "";
     }
 

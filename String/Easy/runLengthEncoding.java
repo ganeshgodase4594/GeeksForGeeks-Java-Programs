@@ -45,8 +45,8 @@ public class runLengthEncoding {
         String res ="";
 
         for(Map.Entry<Character,Integer>entry : hm.entrySet()){
-            res +=entry.getKey();
             res +=entry.getValue();
+            res +=entry.getKey();
         }
 
         return res;
