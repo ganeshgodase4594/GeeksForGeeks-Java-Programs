@@ -34,19 +34,53 @@
 
 package Array.Medium;
 
+import java.util.ArrayList;
+
 public class rearrangeArray {
 
     static void rearrange(long arr[], int n){
-
-        for(int j=0;j<n;j=j+2){
-            long temp = arr[n-1];
-            for(int i=n-2;i>=j;i--){
-                arr[i+1] = arr[i];
+        
+        ArrayList<Long>ls1 = new ArrayList<>();
+        ArrayList<Long>ls2 = new ArrayList<>();
+        
+        int left = 0;
+        int right = arr.length-1;
+        
+        while(left <= right){
+            
+            if(left == right){
+                
+                ls1.add(arr[left]);
             }
-            arr[j] = temp;
-
+            
+            else{
+                
+                ls1.add(arr[right]);
+                ls2.add(arr[left]);
+            }
+            
+            left++;
+            right--;
         }
- 
+        
+        int ind1 = 0;
+        int ind2 = 0;
+        
+        
+        for(int i=0;i<arr.length;i++){
+            
+            if(i % 2==0){
+                
+                arr[i] = ls1.get(ind1);
+                ind1++;
+            }
+            
+            else{
+                arr[i] = ls2.get(ind2);
+                ind2++;
+            }
+        }
+        
     }
 
     public static void main(String[] args) {
