@@ -6,19 +6,30 @@ public class removeDuplicates{
 
     static int remove_duplicate(int A[],int N){
 
-        for(int i=0;i<A.length-1;i++){
-            int j = i+1;
-            while(A[j]!=A[i]){
+        if(A.length<2){
+            return A.length;
+        }
+        
+        int i=0;
+        int j=1;
+        
+        while(j<A.length){
+            
+            if(A[i] == A[j]){
+                
                 j++;
             }
-
-            A[i+1]=A[j];
+            
+            else{
+                
+                i++;
+                A[i] = A[j];
+                j++;
+            }
+            
         }
-
-        for(int i=0;i<A.length;i++){
-            System.out.println(A[i]);
-        }
-        return 0;
+        
+        return i+1;
     }
 
     public static void main(String[] args) {
