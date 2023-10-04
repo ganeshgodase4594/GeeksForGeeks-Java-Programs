@@ -1,38 +1,36 @@
 package Array.Medium;
 
 public class ncr {
-    static int nCr(int n, int r){
-
-        int fact1 = 1;
-
-        if(r>n-r){
-
-            int x = n-r;
-            System.out.println(x);
-            for(int i=n;i>r;i--){
-
-                fact1 = (fact1 * i);
-                System.out.println(i);
+    static int nCr(int n, int r)
+    {
+        if(r>n){
+            // System.out.println("here");
+            return 0;
+        }
+        
+        if(n==r){
+            return 1;
+        }
+        
+        
+        int divided = (factorial(r)*factorial(n-r)) % 1000000007;
+        
+        return factorial(n)/divided;
+        
+        
+    }
     
-                if(x>=1){
-                    fact1 /= x;
-                    x--;
-                }
-            }
-            
+    
+    static int factorial(int num){
+        
+        int fact = 1;
+        
+        for(int i=1;i<=num;i++){
+            fact = fact*i;
+            fact = fact % 1000000007;
         }
-        else{
-
-            for(int i=n;i>(n-r);i--){
-
-                fact1 = fact1 * i;
-                fact1 /= r;
-                r--;
-            }
-        }
-
-
-        return fact1;
+        
+        return fact;
     }
 
     public static void main(String[] args) {
