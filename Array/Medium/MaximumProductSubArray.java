@@ -48,8 +48,8 @@ public class MaximumProductSubArray {
         return max;
     }
     public static void main(String[] args) {
-        int[] arr = {2, 3, 4, 5, -1, 0};
+        int[] arr = {0 ,3, -5, -2, 8, -7, -6, -2, -3,-9};
 
-        System.out.println(maxProduct(arr,6));
+        System.out.println(maxProduct(arr, 0));
     }
 }

@@ -28,28 +28,34 @@ Run Length Encoding
 
 package String.Easy;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class runLengthEncoding {
 
     static String encode(String str)
 	{
         
-        Map<Character,Integer>hm = new LinkedHashMap<>();
-        for(int i=0;i<str.length();i++){
-            int x = hm.getOrDefault(str.charAt(i), 0);
-            hm.put(str.charAt(i), x+1);
-        }
-
-        String res ="";
-
-        for(Map.Entry<Character,Integer>entry : hm.entrySet()){
-            res +=entry.getValue();
-            res +=entry.getKey();
-        }
-
-        return res;
+        if(str.length()==1){
+	        return str+"1";
+	    }
+	    int cnt = 1;
+	    String s = "";
+	    
+	    for(int i=1;i<str.length();i++){
+	        
+	        if(str.charAt(i)==str.charAt(i-1)){
+	            cnt++;
+	        }
+	        
+	        else{
+	            
+	            s = s+str.charAt(i-1)+cnt+"";
+	            cnt = 1;
+	        }
+	    }
+	    
+	    s = s+str.charAt(str.length()-1)+cnt+"";
+	    
+	    return s;
 	}
 
     public static void main(String[] args) {
