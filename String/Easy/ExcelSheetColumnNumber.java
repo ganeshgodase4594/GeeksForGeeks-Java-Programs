@@ -57,7 +57,7 @@ public class ExcelSheetColumnNumber {
     }
 
     public static void main(String[] args) {
-        String columnTitle ="ZZ";
+        String columnTitle ="";
 
         System.out.println(titleToNumber(columnTitle));
     }

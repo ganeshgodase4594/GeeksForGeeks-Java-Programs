@@ -41,24 +41,22 @@ public class reverseEachWordString {
     static String reverseWords(String S)
     {
         String str = "";
-        Stack<Character>st = new Stack<>();
-        for(int i=0;i<S.length();i++){
+        String st = "";
+        for(int i=S.length()-1;i>=0;i--){
+            
             if(S.charAt(i)=='.'){
-                
-                while(!st.isEmpty()){
-                    str+=st.pop();
-                }
-                str+=".";
+                str = '.'+st+str;
+                st = "";
             }
-
+            
             else{
-                st.push(S.charAt(i));
+                st+=S.charAt(i);
             }
         }
-
-        while(!st.isEmpty()){
-            str+=st.pop();
-        }
+        
+        
+        str = st+str;
+        
         return str;
 
     }
