@@ -77,7 +77,7 @@ public class CheckStringRotatedBy2Places {
 
         String  a = "geeksforgeeks";
         String b = "geeksgeeksfor";
-        a.su
+        // a.su
 
         System.out.println(isRotated(a, b));
     }

@@ -41,11 +41,39 @@ public class maximumIndex {
 
     static int maxIndexDiff(int A[], int N) { 
         
-        int mid = (0+A.length)/2;
-        ArrayList<Integer>ls = new ArrayList<>();
+        int leftMin[] = new int[A.length];
+        int rightMax[] = new int[A.length];
+
+        leftMin[0] = A[0];
+        rightMax[A.length-1] = A[A.length-1];
+
+        for(int i=1;i<A.length;i++){
+            leftMin[i] = Math.min(leftMin[i-1],A[i]);
+            rightMax[A.length-i-1] = Math.max(rightMax[A.length-i], A[A.length-i-1]);
+        }
+
+        int left = 0;
+        int right = 0;
+        int ind = 0;
+        while(left<A.length && right<A.length){
+
+            if(leftMin[left]<=rightMax[right]){
+                ind = Math.max(ind,right-left);
+                right++;
+            }
+
+            else{
+                left++;
+            }
+        }
+
+        return ind;
         
     }
+    
     public static void main(String[] args) {
-        
+        int A[] = {34, 8, 10, 3, 2, 80, 30, 33, 1};
+
+        System.out.println(maxIndexDiff(A, 0));
     }
 }
