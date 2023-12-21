@@ -1,45 +1,36 @@
 
+
 /*
+Find the first node of loop in linked list
+        EasyAccuracy: 55.49%Submissions: 39K+Points: 2
+        Fast-Track your resumes to top tech companies and get the job you deserve! Register for hiring challenge exclusively for Freshers  
 
-
-Detect Loop in linked list
-        EasyAccuracy: 43.49%Submissions: 357K+Points: 2
-        Sharpen up your programming skills, participate in coding contests & explore high-paying jobs
-
-        Given a linked list of N nodes. The task is to check if the linked list has a loop. Linked list can contain self loop.
+        banner
+        Given a singly linked list of N nodes. Find the first node of the loop if the linked list has a loop. If a loop is present return the node data of the first node of the loop else return -1.
 
         Example 1:
         Input:
-        N = 3
-        value[] = {1,3,4}
-        x(position at which tail is connected) = 2
-        Output: True
-        Explanation: In above test case N = 3.
-        The linked list with nodes N = 3 is
-        given. Then value of x=2 is given which
-        means last node is connected with xth
-        node of linked list. Therefore, there
-        exists a loop.
 
+        Output: 3
+        Explanation:
+        We can see that there exists a loop 
+        in the given linked list and the first
+        node of the loop is 3.
+        
 
         Example 2:
         Input:
-        N = 4
-        value[] = {1,8,3,4}
-        x = 0
-        Output: False
-        Explanation: For N = 4 ,x = 0 means
-        then lastNode->next = NULL, then
-        the Linked list does not contains
-        any loop.
 
+        Output: -1
+        Explanation: No loop exists in the above
+        linked list.So the output is -1.
  */
+
 
 
 package LinkedList.SinglyLinkedList.Basic;
 
 import java.util.HashSet;
-import java.util.Hashtable;
 
 class Node
 {
@@ -54,7 +45,7 @@ class Node
 }
 
    
-public class detectLoopInLinkedList {
+class LoopLinkedList {
     static Node deleteNode(Node head, int x)
     {
 		if(head==null){
@@ -123,23 +114,23 @@ public class detectLoopInLinkedList {
 		}
 	}
 
-    static boolean detectLoop(Node head){
-        Node temp = head;
+    static int findFirstNode(Node head){
         
         HashSet<Node>hs = new HashSet<>();
         
+        Node temp = head;
+        
         while(temp!=null){
             if(hs.contains(temp)){
-                return true;
+                return temp.data;
             }
             
-            else{
-                hs.add(temp);
-            }
+            hs.add(temp);
+            
             temp = temp.next;
         }
         
-        return false;
+        return -1;
     }
 
    public static void main(String[] args) {
@@ -162,4 +153,3 @@ public class detectLoopInLinkedList {
 
     }
 }
-
